@@ -4,15 +4,19 @@ output: html_document
 ---
 
 ```{r}
-no <- c(1, 2)
-team_name <- c("Queens-Canada", 
-               "Tainan")
-project_title <- c("Velcrion",
-                   "Oh_My_Gut")
+no <- c(1, 2, 3)
+team_name <- c("TuDelft", 
+               "Groningen",
+               "Calgary")
+project_title <- c("PHOCUS",
+                   "RootPatch",
+                   "OVIITA")
 project_year <- c(2020, 
-                  2019)
-wiki_page <- c("https://2020.igem.org/Team:Queens_Canada",
-               "https://2019.igem.org/Team:NCKU_Tainan")
+                  2020,
+                  2020)
+wiki_page <- c("https://2020.igem.org/Team:TUDelft",
+               "https://2020.igem.org/Team:Groningen",
+               "https://2020.igem.org/Team:Calgary")
 
 igem_team <- data.frame(no, 
                         team_name, 

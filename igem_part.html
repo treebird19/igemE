@@ -170,16 +170,16 @@ pre code {
 
 <pre class="r"><code>no &lt;- c(1, 2, 3)
 
-part_id &lt;- c(&quot;BBa_K2259000&quot;, 
-             &quot;BBa_K2259010&quot;,
-             &quot;BBa_K2259092&quot;)
-part_name &lt;- c(&quot;SynORI framework RNA II - Replication Initiator (Group A)&quot;,
-               &quot;Rop protein - global copy number inhibitor (SynORI framework)&quot;,
-               &quot;Minimal base vector for SynORI system building&quot;)
-part_type &lt;- c(&quot;Prject&quot;,
-               &quot;Coding&quot;,
-               &quot;Plasmid&quot;)
-team_id &lt;- c(2, 2, 2)
+part_id &lt;- c(&quot;BBa_K3407000&quot;, 
+             &quot;BBa_K3507001&quot;,
+             &quot;BBa_K3629000&quot;)
+part_name &lt;- c(&quot;Reversible nonoxidative vanillate / 4-hydroxybenzoate decarboxylase from B. subtilis (bsdBCD)&quot;,
+               &quot;Neuropeptide like protein of Globodera pallida&quot;,
+               &quot;Yarrowia lipolytica XRP2 signal peptide (secretion tag)&quot;)
+part_type &lt;- c(&quot;Coding&quot;,
+               &quot;Unknown&quot;,
+               &quot;Protein_Domain&quot;)
+team_id &lt;- c(1, 2, 3)
 
 igem_part &lt;- data.frame(no,
                         part_id, 
@@ -190,11 +190,11 @@ igem_part &lt;- data.frame(no,
 knitr::kable(igem_part)</code></pre>
 <table>
 <colgroup>
-<col width="3%" />
-<col width="13%" />
-<col width="64%" />
-<col width="10%" />
-<col width="8%" />
+<col width="2%" />
+<col width="9%" />
+<col width="70%" />
+<col width="11%" />
+<col width="6%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -208,24 +208,24 @@ knitr::kable(igem_part)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">BBa_K2259000</td>
-<td align="left">SynORI framework RNA II - Replication Initiator (Group A)</td>
-<td align="left">Prject</td>
-<td align="right">2</td>
+<td align="left">BBa_K3407000</td>
+<td align="left">Reversible nonoxidative vanillate / 4-hydroxybenzoate decarboxylase from B. subtilis (bsdBCD)</td>
+<td align="left">Coding</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">BBa_K2259010</td>
-<td align="left">Rop protein - global copy number inhibitor (SynORI framework)</td>
-<td align="left">Coding</td>
+<td align="left">BBa_K3507001</td>
+<td align="left">Neuropeptide like protein of Globodera pallida</td>
+<td align="left">Unknown</td>
 <td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">BBa_K2259092</td>
-<td align="left">Minimal base vector for SynORI system building</td>
-<td align="left">Plasmid</td>
-<td align="right">2</td>
+<td align="left">BBa_K3629000</td>
+<td align="left">Yarrowia lipolytica XRP2 signal peptide (secretion tag)</td>
+<td align="left">Protein_Domain</td>
+<td align="right">3</td>
 </tr>
 </tbody>
 </table>
