@@ -1,0 +1,25 @@
+---
+title: "iGEM_team"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+no <- c(1, 2)
+team_name <- c("Queens-Canada", 
+               "Tainan")
+project_title <- c("Velcrion",
+                   "Oh_My_Gut")
+project_year <- c(2020, 
+                  2019)
+wiki_page <- c("https://2020.igem.org/Team:Queens_Canada",
+               "https://2019.igem.org/Team:NCKU_Tainan")
+
+igem_team <- data.frame(no, 
+                        team_name, 
+                        project_title, 
+                        project_year, 
+                        wiki_page)
+                        
+#knitr::kable(std, format = "markdown")
+knitr::kable(igem_team)
+```

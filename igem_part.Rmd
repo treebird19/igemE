@@ -1,0 +1,27 @@
+---
+title: "iGEM_part"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+no <- c(1, 2, 3)
+
+part_id <- c("BBa_K2259000", 
+             "BBa_K2259010",
+             "BBa_K2259092")
+part_name <- c("SynORI framework RNA II - Replication Initiator (Group A)",
+               "Rop protein - global copy number inhibitor (SynORI framework)",
+               "Minimal base vector for SynORI system building")
+part_type <- c("Prject",
+               "Coding",
+               "Plasmid")
+team_id <- c(2, 2, 2)
+
+igem_part <- data.frame(no,
+                        part_id, 
+                        part_name,
+                        part_type, 
+                        team_id)
+
+knitr::kable(igem_part)
+```
