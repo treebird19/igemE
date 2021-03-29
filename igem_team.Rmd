@@ -3,7 +3,7 @@ title: "iGEM_team"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r}
 no <- c(1, 2)
 team_name <- c("Queens-Canada", 
                "Tainan")

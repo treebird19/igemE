@@ -3,7 +3,7 @@ title: "iGEM_part"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r}
 no <- c(1, 2, 3)
 
 part_id <- c("BBa_K2259000", 
