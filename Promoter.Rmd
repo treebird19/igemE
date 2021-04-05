@@ -1,0 +1,67 @@
+---
+title: "igem_promoter"
+output: html_document
+---
+
+# Promoter: BBa_J23119
+
+### 1. Team Info.
+
+```{r}
+
+knitr::kable(
+  data.frame(no = "1",
+             Team = "Nottingham",
+             Project = "Clostridium dTox",
+             Year = "2018",
+             Wiki = "http://2018.igem.org/Team:Nottingham")
+  )
+
+```
+
+### 2. Related part
+
+```{r}
+
+knitr::kable(
+  data.frame(no = 1:5,
+             part_id = c("BBa_K3645016",
+                         "BBa_K3645017",
+                         "BBa_K3380630",
+                         "BBa_K3362001",
+                         "BBa_K3513002"),
+             part_name = c("sgRNA scaffold",
+                           "sgRNA scaffold with 2xMS2",
+                           "TXO Fluoride riboswitch",
+                           "Target cassette",
+                           "endoglucanase"),
+             part_type = c("RNA",
+                           "RNA",
+                           "Measurement",
+                           "Composite",
+                           "Coding"),
+             circuit = c("J23119+gRNA scaffold",
+                         "J23119+gRNA scaffold(2xMS2)",
+                         "J23119+K3380104+K3380101+K3380150+K3380102",
+                         "J23119+K1893031+B0034+K592010+B0012",
+                         "J23119+K3513000"))
+  )
+
+```
+
+### 3. Protocol
+
+```{r echo=F}
+
+print("Sorry, I don't know where is the protocol")
+
+```
+
+### 4. Condition & Method
+
+```{r echo=F}
+
+print("Sorry, I don't know where is the conditions & methods")
+
+```
+

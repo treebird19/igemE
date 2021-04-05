@@ -24,6 +24,6 @@ igem_team <- data.frame(no,
                         project_year, 
                         wiki_page)
                         
-#knitr::kable(std, format = "markdown")
+
 knitr::kable(igem_team)
 ```
