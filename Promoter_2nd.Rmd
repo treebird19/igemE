@@ -1,0 +1,94 @@
+---
+title: "igem_promoter"
+output: html_document
+---
+
+# Promoter: BBa_J23119
+
+### 1. igem_team
+
+```{r}
+
+knitr::kable(
+  igem_team <- data.frame(id = "1",
+             team_name = "Nottingham",
+             project = "Engineer a phage which will infect C. difficile and express genetic constructs designed to suppress toxin production.",
+             year = "2018",
+             wiki = "http://2018.igem.org/Team:Nottingham")
+  )
+
+```
+
+### 2. igem_part
+
+```{r}
+
+knitr::kable(
+  igem_part <- data.frame(id = 1:3,
+             BBid = c("BBa_J23119",
+                      "BBa_K2715010",
+                      "BBa_E0040"),
+             type = c("Promoter",
+                      "RBS",
+                      "GFP"),
+             link = c("http://parts.igem.org/Part:BBa_J23119",
+                      "http://parts.igem.org/Part:BBa_K2715010",
+                      "http://parts.igem.org/Part:BBa_E0040"),
+             backbone = rep("-", 3),
+             device_id = paste0("D", sprintf("%04d", rep(1, 3))),
+             team_name = rep("Nottingham", 3),
+             user = rep("sb.h", 3))
+  )
+
+```
+
+### 3. igem_obs
+
+```{r}
+
+knitr::kable(
+  igem_obs <- data.frame(id = 1,
+             strain = c("E. coli"),
+             indc = c("GusA"),
+             conc = c("-"),
+             value = c("0.06"),
+             valunit = c("uM Fluorescein/OD"),
+             incubhr = 6,
+             incubtemp = "-",
+             device_id = paste0("D", sprintf("%04d", 1)),
+             link = c("http://2018.igem.org/Team:Nottingham/Achievements#improved-parts"))
+  )
+
+```
+
+### 4. Integrate tables
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r}
+
+knitr::kable(
+  igem_promoter <- left_join(igem_part, igem_team, by = "team_name") %>% 
+  left_join(igem_obs, by = "device_id")
+)
+
+```
+
+
+### 5. Arrange data
+
+```{r}
+
+plot_data <- filter(igem_promoter, BBid == "BBa_J23119") %>% 
+  select(strain, conc, value) %>% 
+  mutate(strain = as.factor(strain), conc = as.factor(conc))
+
+ggplot(plot_data, aes(x = strain, y = value)) +
+  geom_bar(stat = 'identity')
+
+```
+
