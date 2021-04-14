@@ -4,4 +4,6 @@ this is readme markdown file
 
 [iGEM part](igem_part.html)
 
-[iGEM promoter](Promoter_2nd.html)
+[iGEM promoter 2nd](Promoter_2nd.html)
+
+[iGEM promoter 3rd](Promoter_3rd.html)

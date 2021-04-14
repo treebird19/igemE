@@ -1,0 +1,101 @@
+---
+title: "igem_promoter 3rd"
+output: html_document
+---
+
+# Promoter: BBa_J23119 (Part: BBa_K2969050)
+
+### 1. igem_team
+
+```{r}
+
+knitr::kable(
+  igem_team <- data.frame(id = "2",
+             team_name = "UCAS-China",
+             project = "Constructing an efficient temperature-sensitive switch system as a safe platform for microbial therapy",
+             year = "2019",
+             wiki = "https://2019.igem.org/Team:UCAS-China")
+  )
+
+```
+
+
+### 2. igem_part
+
+```{r}
+
+knitr::kable(
+  igem_part <- data.frame(id = 5:9,
+             BBid = c("BBa_J23119",
+                      "BBa_K2969998",
+                      "BBa_K2969020",
+                      "BBa_I746916",
+                      "BBa_K2969991"),
+             type = c("Promoter",
+                      "RBS",
+                      "TEVsite",
+                      "sfGFP",
+                      "Terminator"),
+             link = c("http://parts.igem.org/Part:BBa_J23119",
+                      "http://parts.igem.org/Part:BBa_K2969998",
+                      "http://parts.igem.org/Part:BBa_K2969020",
+                      "http://parts.igem.org/Part:BBa_I746916",
+                      "http://parts.igem.org/Part:BBa_K2969991"),
+             backbone = rep("-", 5),
+             device_id = paste0("D", sprintf("%04d", rep(2, 5))),
+             team_name = rep("UCAS-China", 5),
+             user = rep("sb.h", 5))
+  )
+
+```
+
+### 3. igem_obs
+
+```{r}
+
+knitr::kable(
+  igem_obs <- data.frame(id = rep(1, 6),
+                         strain = rep("-", 6),
+                         indc = c("-"),
+                         conc = rep(NA, 6),
+                         concunit = rep(NA, 6),
+                         value = c(60, 65, 75, 85, 90, 100),
+                         valunit = c("Fluorescence(a.u.)"),
+                         incubhr = rep(NA, 6),
+                         incubtemp = c(25, 30, 34, 37, 40, 42),
+                         device_id = rep(paste0("D", sprintf("%04d", 2)), 6),
+                         link = rep("http://parts.igem.org/Part:BBa_K2969050", 6))
+  )
+
+```
+
+### 4. Integrate tables
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r}
+
+knitr::kable(
+  igem_promoter <- left_join(igem_part, igem_team, by = "team_name") %>% 
+  left_join(igem_obs, by = "device_id")
+)
+
+```
+
+
+### 5. Arrange data
+
+```{r}
+
+plot_data <- filter(igem_promoter, BBid == "BBa_J23119") %>% 
+  select(incubtemp, conc, value) %>% 
+  mutate(conc = as.factor(conc))
+
+ggplot(plot_data, aes(x = incubtemp, y = value)) +
+  geom_line()
+
+```
