@@ -1,5 +1,5 @@
 ---
-title: "igem_promoter 3rd"
+title: "igem_promoter_3rd"
 output: html_document
 ---
 

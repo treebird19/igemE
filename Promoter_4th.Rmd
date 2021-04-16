@@ -1,0 +1,121 @@
+---
+title: "igem_promoter_4th"
+output: html_document
+---
+
+# Promoter: BBa_R0062 (Part: BBa_K3440003)
+
+### 1. Load Excel
+
+```{r}
+library(readxl)
+
+igem_team <- read_excel("igem_promoters.xlsx", sheet = 1)
+igem_team
+```
+
+
+
+### 2. Gather part tables & generate CSV
+
+```{r}
+library(dplyr)
+
+igem_part1 <- data.frame(
+  id = 1:4,
+  BBid = c("BBa_J23119",
+           "BBa_K2715010",
+           "BBa_E0040",
+           "-"),
+  type = c("Promoter",
+           "RBS",
+           "GFP",
+           "Terminator"),
+  link = c("http://parts.igem.org/Part:BBa_J23119",
+           "http://parts.igem.org/Part:BBa_K2715010",
+           "http://parts.igem.org/Part:BBa_E0040",
+           "-"),
+  backbone = rep("pMTL84151", 4),
+  device_id = paste0("D", sprintf("%04d", rep(1, 4))),
+  team_name = rep("Nottingham", 4),
+  user = rep("sb.h", 4)
+)
+
+igem_part2 <- data.frame(
+  id = 1:5,
+  BBid = c("BBa_J23119",
+           "BBa_K2969998",
+           "BBa_K2969020",
+           "BBa_I746916",
+           "BBa_K2969991"),
+  type = c("Promoter",
+           "RBS",
+           "TEVsite",
+           "sfGFP",
+           "Terminator"),
+  link = c("http://parts.igem.org/Part:BBa_J23119",
+           "http://parts.igem.org/Part:BBa_K2969998",
+           "http://parts.igem.org/Part:BBa_K2969020",
+           "http://parts.igem.org/Part:BBa_I746916",
+           "http://parts.igem.org/Part:BBa_K2969991"),
+  backbone = rep("-", 5),
+  device_id = paste0("D", sprintf("%04d", rep(2, 5))),
+  team_name = rep("UCAS-China", 5),
+  user = rep("sb.h", 5)
+)
+
+igem_part <- bind_rows(igem_part1, igem_part2, .id = "id")
+igem_part
+
+write.csv(igem_part, "igem_part.csv", row.names = F)
+```
+
+
+
+### 3. Gather obs tables & generate CSV
+
+```{r}
+igem_obs1 <- data.frame(
+  id = 1,
+  strain = c("E. coli"),
+  indc = c("-"),
+  conc = c(NA),
+  concunit = c("-"),
+  value = c(0.06),
+  valunit = c("uM Fluorescein/OD"),
+  incubhr = 6,
+  incubtemp = 37,
+  device_id = paste0("D", sprintf("%04d", 1)),
+  link = c("http://parts.igem.org/Part:BBa_K2715119")
+)
+
+igem_obs2 <- data.frame(
+  id = rep(1, 6),
+  strain = rep("-", 6),
+  indc = c("-"),
+  conc = rep(NA, 6),
+  concunit = rep("-", 6),
+  value = c(60, 65, 75, 85, 90, 100),
+  valunit = c("Fluorescence(a.u.)"),
+  incubhr = rep(NA, 6),
+  incubtemp = c(25, 30, 34, 37, 40, 42),
+  device_id = rep(paste0("D", sprintf("%04d", 2)), 6),
+  link = rep("http://parts.igem.org/Part:BBa_K2969050", 6)
+)
+
+igem_obs <- bind_rows(igem_obs1, igem_obs2, .id = "id")
+igem_obs
+
+write.csv(igem_obs, "igem_obs.csv", row.names = F)
+```
+
+
+
+### 4. Read Excel
+
+```{r}
+igem_team <- read_excel("igem_promoters.xlsx", sheet=1)
+igem_part <- read_excel("igem_promoters.xlsx", sheet=2)
+igem_obs <- read_excel("igem_promoters.xlsx", sheet=3)
+```
+

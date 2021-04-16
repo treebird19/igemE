@@ -1,0 +1,8 @@
+"id","strain","indc","conc","concunit","value","valunit","incubhr","incubtemp","device_id","link"
+"1","E. coli","-",NA,"-",0.06,"uM Fluorescein/OD",6,37,"D0001","http://parts.igem.org/Part:BBa_K2715119"
+"2","-","-",NA,"-",60,"Fluorescence(a.u.)",NA,25,"D0002","http://parts.igem.org/Part:BBa_K2969050"
+"2","-","-",NA,"-",65,"Fluorescence(a.u.)",NA,30,"D0002","http://parts.igem.org/Part:BBa_K2969050"
+"2","-","-",NA,"-",75,"Fluorescence(a.u.)",NA,34,"D0002","http://parts.igem.org/Part:BBa_K2969050"
+"2","-","-",NA,"-",85,"Fluorescence(a.u.)",NA,37,"D0002","http://parts.igem.org/Part:BBa_K2969050"
+"2","-","-",NA,"-",90,"Fluorescence(a.u.)",NA,40,"D0002","http://parts.igem.org/Part:BBa_K2969050"
+"2","-","-",NA,"-",100,"Fluorescence(a.u.)",NA,42,"D0002","http://parts.igem.org/Part:BBa_K2969050"
