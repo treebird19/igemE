@@ -1,0 +1,85 @@
+---
+title: "Promoter_5th"
+output: html_document
+---
+
+## Gather excel files
+
+엑셀 파일이 없거나 이름이 통일되지 않은 유저 제외
+
+```{r}
+ls_url = c(# "hayleykim97/igemE",
+           "TH-Kim310/igemE",
+           # "Lelp27/igemE",
+           "aputron/igemE",
+           # "gpemelianov/igemE",
+           "yoo-bh/igemE",
+           "seokjin-oh/igemE",
+           "treebird19/igemE",
+           "jinjulee119/igemE2")
+
+dir.create("download")
+dir.create(downpath <- "download/promoter/")
+
+for (l in ls_url) {
+  download.file(paste0("https://github.com/",
+                       l,
+                       "/raw/main/igem_promoters.xlsx"),
+                paste0(downpath,
+                       strsplit(l, "/")[[1]][1],
+                       ".xlsx"))
+  
+  rm(l)
+}
+```
+
+## Bind team data of each excel file
+
+```{r}
+library(tidyverse)
+library(readxl)
+
+xls <- dir(downpath, "*(.xlsx)$")
+tmp <- list()
+
+for (i in 1:length(xls)) {
+  tmp[[i]] <- read_excel(paste0(downpath, xls[i]), sheet = 1)
+  
+  rm(i)
+}
+
+igem_team <- do.call(bind_rows, tmp)
+igem_team
+```
+
+
+## Bind part data of each excel file
+
+```{r}
+for (i in 1:length(xls)) {
+  tmp[[i]] <- read_excel(paste0(downpath, xls[i]), sheet = 2)
+  
+  rm(i)
+}
+
+igem_part <- do.call(bind_rows, tmp)
+igem_part
+
+```
+
+
+## Bind observation data of each excel file
+
+각 엑셀 파일별로 컬럼 구성이 달라 에러 발생
+
+```{r, error=TRUE}
+for (i in 1:length(xls)) {
+  tmp[[i]] <- read_excel(paste0(downpath, xls[i]), sheet = 3)
+  
+  rm(i)
+}
+
+igem_obs <- do.call(bind_rows, tmp)
+igem_obs
+
+```
