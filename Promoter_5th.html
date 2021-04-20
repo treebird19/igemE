@@ -168,8 +168,8 @@ pre code {
 </div>
 
 
-<div id="gather-excel-files" class="section level2">
-<h2>Gather excel files</h2>
+<div id="gather-excel-files" class="section level3">
+<h3>1. Gather excel files</h3>
 <p>엑셀 파일이 없거나 이름이 통일되지 않은 유저 제외</p>
 <pre class="r"><code>ls_url = c(# &quot;hayleykim97/igemE&quot;,
            &quot;TH-Kim310/igemE&quot;,
@@ -197,8 +197,8 @@ dir.create(&quot;download&quot;)</code></pre>
   rm(l)
 }</code></pre>
 </div>
-<div id="bind-team-data-of-each-excel-file" class="section level2">
-<h2>Bind team data of each excel file</h2>
+<div id="bind-team-data-of-each-excel-file" class="section level3">
+<h3>2. Bind team data of each excel file</h3>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
@@ -240,8 +240,8 @@ igem_team</code></pre>
 ## 14     2 BOKU-Vienna  help people dealing with sepsis…  2020 https://2020.igem.…
 ## 15     3 Tongji_China Seek Heme And Reflect cracK (SH…  2020 https://2020.igem.…</code></pre>
 </div>
-<div id="bind-part-data-of-each-excel-file" class="section level2">
-<h2>Bind part data of each excel file</h2>
+<div id="bind-part-data-of-each-excel-file" class="section level3">
+<h3>3. Bind part data of each excel file</h3>
 <pre class="r"><code>for (i in 1:length(xls)) {
   tmp[[i]] &lt;- read_excel(paste0(downpath, xls[i]), sheet = 2)
   
@@ -265,8 +265,8 @@ igem_part</code></pre>
 ## 10     7 BBa_B0… termin… http://parts… PSB3K3   D0001     iBowu-Ch… Jinju… &lt;NA&gt; 
 ## # … with 45 more rows</code></pre>
 </div>
-<div id="bind-observation-data-of-each-excel-file" class="section level2">
-<h2>Bind observation data of each excel file</h2>
+<div id="bind-observation-data-of-each-excel-file" class="section level3">
+<h3>4. Bind observation data of each excel file</h3>
 <p>각 엑셀 파일별로 컬럼 구성이 달라 에러 발생</p>
 <pre class="r"><code>for (i in 1:length(xls)) {
   tmp[[i]] &lt;- read_excel(paste0(downpath, xls[i]), sheet = 3)
