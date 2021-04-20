@@ -3,7 +3,7 @@ title: "Promoter_5th"
 output: html_document
 ---
 
-## Gather excel files
+### 1. Gather excel files
 
 엑셀 파일이 없거나 이름이 통일되지 않은 유저 제외
 
@@ -33,7 +33,7 @@ for (l in ls_url) {
 }
 ```
 
-## Bind team data of each excel file
+### 2. Bind team data of each excel file
 
 ```{r}
 library(tidyverse)
@@ -53,7 +53,7 @@ igem_team
 ```
 
 
-## Bind part data of each excel file
+### 3. Bind part data of each excel file
 
 ```{r}
 for (i in 1:length(xls)) {
@@ -68,7 +68,7 @@ igem_part
 ```
 
 
-## Bind observation data of each excel file
+### 4. Bind observation data of each excel file
 
 각 엑셀 파일별로 컬럼 구성이 달라 에러 발생
 
